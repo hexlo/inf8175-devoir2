@@ -1,0 +1,2 @@
+output let {array [int] of string: X_INTRODUCED_21_ = [show(nombre)]} in (["\"output\": {","\"default\": ",showJSON(concat(X_INTRODUCED_21_)),", \"raw\": ",showJSON(concat(X_INTRODUCED_21_)),"}, \"sections\": [\"default\", \"raw\"]"]);
+int: nombre;
