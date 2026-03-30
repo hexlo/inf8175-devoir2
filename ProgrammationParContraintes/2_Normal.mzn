@@ -37,7 +37,29 @@ var int: fin_projet;
 % Partie étudiant
 %-----------------------------------------------------------------------------%
 
+% La fin d'une tâche correspond à son début additionné à sa durée.
+constraint forall(i in 1..n)(
+    fin_tache[i] == debut_tache[i] + duree_tache[i]
+);
 
+
+% Le projet se termine quand la dernière tâche est achevée.
+constraint fin_projet == max(fin_tache);
+
+% Contrainte globale d'énergie
+% À n'importe quel moment, la somme des énergies des tâches en cours ne doit pas dépasser 'limite'.
+constraint cumulative(debut_tache, duree_tache, ressource_tache, limite);
+
+% Contrainte globale de démarrages simultanés
+% Pas plus de 2 tâches ne peuvent démarrer au même instant. On crée des tableaux factices 
+% de taille 'n' remplis de 1 pour modéliser le coût d'un démarrage.
+array[1..n] of int: duree_demarrage = [1 | i in 1..n];
+array[1..n] of int: ressource_demarrage = [1 | i in 1..n];
+
+constraint cumulative(debut_tache, duree_demarrage, ressource_demarrage, 2);
+
+% On cherche à minimiser la fin du projet
+solve minimize fin_projet;
 %-----------------------------------------------------------------------------%
 
 output [
