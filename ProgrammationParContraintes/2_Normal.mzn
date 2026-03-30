@@ -1,5 +1,5 @@
-% NOM_ETUDIANT_1 (MATRICULE_1)
-% NOM_ETUDIANT_2 (MATRICULE_2)
+% Albert_darchicourt_Cisse   (2471152)
+% Charles_Jobin_Fauvel       (1896074)
 
 include "globals.mzn"; 
 

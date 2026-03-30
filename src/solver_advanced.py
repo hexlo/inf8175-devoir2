@@ -1,3 +1,10 @@
+########## INF8175 - Devoir 2 - Hiver 2026 ##########
+# ---------------------------------------------------
+# Noms et Matricules
+#
+# Albert darchicourt Cisse   2471152
+# Charles Jobin Fauvel       1896074
+
 import time
 from schedule import Schedule
 
